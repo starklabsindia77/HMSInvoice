@@ -41,7 +41,9 @@ function Book() {
     Onward_Flight_end: false,
     Onward_Flight_end_code: false,
     Onward_Flight_start_time: false,
+    Onward_Flight_start_time_2: false,
     Onward_Flight_end_time: false,
+    Onward_Flight_end_time_2: false,
     Onward_Flight_start_address: false,
     Onward_Flight_end_address: false,
     awaiting_time: false,
@@ -95,7 +97,9 @@ function Book() {
       Onward_Flight_end: "",
       Onward_Flight_end_Code: "",
       Onward_Flight_start_time: "",
+      Onward_Flight_start_time_2: "",
       Onward_Flight_end_time: "",
+      Onward_Flight_end_time_2: "",
       Onward_Flight_start_address: "",
       Onward_Flight_end_address: "",
       awaiting_time: "",
@@ -211,10 +215,13 @@ function Book() {
                   Onward_Flight_end: "",
                   Onward_Flight_end_Code: "",
                   Onward_Flight_start_time: "",
+                  Onward_Flight_start_time_2: "",
                   Onward_Flight_end_time: "",
+                  Onward_Flight_end_time_2: "",
                   Onward_Flight_start_address: "",
                   Onward_Flight_end_address: "",
                   awaiting_time: "",
+                  flightNo: "",
                   flight_class: "",
                 });
                 setnumberOfForm((prev) => prev + 1);
@@ -414,7 +421,7 @@ function Book() {
                               setStatus({ filghtNo: true });
                               setOpenFormStatus(i);
                             }}
-                            className="text-black font-medium mr-2"
+                            className="text-slate-400 font-medium mr-2"
                           >
                             {data[i].filghtNo || (
                               <span className="text-sm text-slate-400">
@@ -466,11 +473,37 @@ function Book() {
                           </span>
                         )}
 
-                        {!status.Onward_Flight_start_time &&
-                          data[i].Onward_Flight_start_time &&
-                          moment(data[i].Onward_Flight_start_time).format(
-                            "HH:MM"
-                          )}
+                        {status.Onward_Flight_start_time_2 && OpenFormStatus === i ? (
+                          <>
+                            <Input
+                              autoFocus
+                              className="ml-2"
+                              inputProps={ariaLabel}
+                              onChange={(e) =>
+                                (data[i].Onward_Flight_start_time_2 = e.target.value)
+                              }
+                            />
+                            <CheckIcon
+                              onClick={() =>
+                                setStatus({ Onward_Flight_start_time_2: false })
+                              }
+                            />
+                          </>
+                        ) : (
+                          <span
+                            onClick={() => {
+                              setStatus({ Onward_Flight_start_time_2: true });
+                              setOpenFormStatus(i);
+                            }}
+                            className="text-black font-medium mr-2"
+                          >
+                            {data[i].Onward_Flight_start_time_2 || (
+                              <span className="text-sm text-slate-400">
+                                Enter Flight Start Time (HH:MM)
+                              </span>
+                            )}
+                          </span>
+                        )}
                       </Typography>
                       {status.Onward_Flight_start_time &&
                         OpenFormStatus === i ? (
@@ -612,11 +645,37 @@ function Book() {
                         variant="inherit"
                         className=" text-xl text-slate-400 py-1"
                       >
-                        {!status.Onward_Flight_end_time &&
-                          data[i].Onward_Flight_end_time &&
-                          moment(data[i].Onward_Flight_end_time).format(
-                            "HH:MM"
-                          )}
+                        {status.Onward_Flight_end_time_2 && OpenFormStatus === i ? (
+                          <>
+                            <Input
+                              autoFocus
+                              className="ml-2"
+                              inputProps={ariaLabel}
+                              onChange={(e) =>
+                                (data[i].Onward_Flight_end_time_2 = e.target.value)
+                              }
+                            />
+                            <CheckIcon
+                              onClick={() =>
+                                setStatus({ Onward_Flight_end_time_2: false })
+                              }
+                            />
+                          </>
+                        ) : (
+                          <span
+                            onClick={() => {
+                              setStatus({ Onward_Flight_end_time_2: true });
+                              setOpenFormStatus(i);
+                            }}
+                            className="text-black font-medium mr-2"
+                          >
+                            {data[i].Onward_Flight_end_time_2 || (
+                              <span className="text-sm text-slate-400">
+                                Enter Flight End Time (HH:MM)
+                              </span>
+                            )}
+                          </span>
+                        )}
                         {status.Onward_Flight_end_code && OpenFormStatus === i ? (
                           <>
                             <Input
