@@ -164,7 +164,7 @@ function Book() {
               )}
             </Typography>
             <Typography variant="inherit" className="font-medium">
-              Booked on:
+              Booked On :
               {!status.bookingTime ? (
                 <span
                   className="text-gray-500"
@@ -535,7 +535,7 @@ function Book() {
                         >
                           {data[i].Onward_Flight_start_time || (
                               <span className="text-sm text-slate-400">
-                                Enter Start Time (ddd hh MMM, YYYY)
+                                Enter Start Day (ddd hh MMM, YYYY)
                               </span>
                             )}
                         </Typography>
@@ -740,7 +740,7 @@ function Book() {
                           {data[i].Onward_Flight_end_time 
                             || (
                               <span className="text-sm text-slate-400">
-                                Enter End Time (ddd hh MMM, YYYY)
+                                Enter End Day (ddd hh MMM, YYYY)
                               </span>
                             )}
                         </Typography>

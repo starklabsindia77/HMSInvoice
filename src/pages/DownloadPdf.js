@@ -86,7 +86,7 @@ function DownloadPdf() {
                   </span>
                 </Typography>
                 <Typography variant="inherit" className="font-medium">
-                  Booked on:
+                  Booked On :
                   <span className="text-gray-500">
                     {bookingInfo.bookingTime &&
                       moment(bookingInfo.bookingTime).format(
